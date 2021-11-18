@@ -1,7 +1,6 @@
 package io.github.edsontofolo.springbootjpa.service;
 
 import io.github.edsontofolo.springbootjpa.dto.PersonDto;
-import io.github.edsontofolo.springbootjpa.entity.Person;
 
 import java.util.List;
 import java.util.Optional;
