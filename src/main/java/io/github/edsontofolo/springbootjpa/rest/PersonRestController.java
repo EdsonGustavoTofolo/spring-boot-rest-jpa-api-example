@@ -22,7 +22,8 @@ public class PersonRestController {
     @PostMapping
     public ResponseEntity<PersonDto> create(@RequestBody PersonDto personDto) {
         PersonDto personDtoCreated = this.personService.create(personDto);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(personDtoCreated.getId()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(personDtoCreated.getId()).toUri();
         return ResponseEntity.created(location).body(personDtoCreated);
     }
 
