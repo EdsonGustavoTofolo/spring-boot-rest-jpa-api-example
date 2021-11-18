@@ -1,14 +1,17 @@
 package io.github.edsontofolo.springbootjpa;
 
-import io.github.edsontofolo.springbootjpa.entity.ComplementoAnuario;
-import io.github.edsontofolo.springbootjpa.entity.ComplementoAnuarioRamoUrl;
-import io.github.edsontofolo.springbootjpa.repository.ComplementoAnuarioRepository;
+import io.github.edsontofolo.springbootjpa.entity.Brand;
+import io.github.edsontofolo.springbootjpa.entity.Car;
+import io.github.edsontofolo.springbootjpa.entity.Person;
+import io.github.edsontofolo.springbootjpa.repository.BrandRepository;
+import io.github.edsontofolo.springbootjpa.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -19,37 +22,50 @@ public class SpringBootJpaApplication {
     }
 
     @Bean
-    public CommandLineRunner init(@Autowired ComplementoAnuarioRepository complementoAnuarioRepository){
+    public CommandLineRunner init(@Autowired PersonRepository personRepository,
+                                  @Autowired BrandRepository brandRepository){
         return args -> {
-            System.out.println("Salvando Complementos");
-            ComplementoAnuarioRamoUrl complementoAnuarioRamoUrl1 = new ComplementoAnuarioRamoUrl();
-            complementoAnuarioRamoUrl1.setUrl("http://www.complementoanuariourls.com/1");
+            System.out.println("Saving brands...");
 
-            ComplementoAnuarioRamoUrl complementoAnuarioRamoUrl11 = new ComplementoAnuarioRamoUrl();
-            complementoAnuarioRamoUrl11.setUrl("http://www.complementoanuariourls.com/1.1");
+            Brand kia = new Brand();
+            kia.setName("Kia");
 
-            ComplementoAnuarioRamoUrl complementoAnuarioRamoUrl2 = new ComplementoAnuarioRamoUrl();
-            complementoAnuarioRamoUrl2.setUrl("http://www.complementoanuariourls.com/2");
+            Brand volkswagen = new Brand();
+            volkswagen.setName("Volkswagen");
 
-            ComplementoAnuario complementoAnuario1 = new ComplementoAnuario();
-            complementoAnuario1.setTexto("Some text here");
-            complementoAnuario1.setUrl("http://www.complementoanuario.com/1");
-            complementoAnuario1.addComplementoAnuarioRamoUrl(complementoAnuarioRamoUrl1);
-            complementoAnuario1.addComplementoAnuarioRamoUrl(complementoAnuarioRamoUrl11);
+            brandRepository.saveAll(Arrays.asList(kia, volkswagen));
 
-            ComplementoAnuario complementoAnuario2 = new ComplementoAnuario();
-            complementoAnuario2.setTexto("Some text here2");
-            complementoAnuario2.setUrl("http://www.complementoanuario.com/2");
-            complementoAnuario2.addComplementoAnuarioRamoUrl(complementoAnuarioRamoUrl2);
+            System.out.println("Brands saved...");
 
-            complementoAnuarioRepository.save(complementoAnuario1);
-            complementoAnuarioRepository.save(complementoAnuario2);
+            System.out.println("Saving people...");
 
-            List<ComplementoAnuario> complementos = complementoAnuarioRepository.findAll();
-            complementos.forEach(System.out::println);
+            Car cerato = new Car();
+            cerato.setName("Cerato");
+            cerato.setBrand(kia);
 
+            Car sportage = new Car();
+            sportage.setName("Sportage");
+            sportage.setBrand(kia);
+
+            Car golf = new Car();
+            golf.setName("Golf");
+            golf.setBrand(volkswagen);
+
+            Person jonh = new Person();
+            jonh.setName("John");
+            jonh.addCar(cerato);
+            jonh.addCar(sportage);
+
+            Person donald = new Person();
+            donald.setName("Donald");
+            donald.addCar(golf);
+
+            personRepository.save(jonh);
+            personRepository.save(donald);
+            System.out.println("People saved...");
+
+            List<Person> people = personRepository.findAll();
+            people.forEach(System.out::println);
         };
     }
-
-
 }

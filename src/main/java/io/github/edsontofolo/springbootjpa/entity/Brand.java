@@ -8,13 +8,10 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class ComplementoAnuarioRamoUrl {
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
-    private String url;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "complemento_anuario_id")
-    private ComplementoAnuario complementoAnuario;
+    @Column(nullable = false)
+    private String name;
 }

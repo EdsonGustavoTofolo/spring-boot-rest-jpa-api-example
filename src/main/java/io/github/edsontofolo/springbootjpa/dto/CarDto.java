@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComplementoAnuarioRamoUrlDto {
+public class CarDto {
     private Integer id;
-    private String url;
+    private String name;
+    private Integer brandId;
 }

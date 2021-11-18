@@ -13,9 +13,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComplementoAnuarioDto {
+public class PersonDto {
     private Integer id;
-    private String texto;
-    private String url;
-    private List<ComplementoAnuarioRamoUrlDto> complementoAnuarioRamoUrls;
+    private String name;
+    private List<CarDto> cars;
 }
