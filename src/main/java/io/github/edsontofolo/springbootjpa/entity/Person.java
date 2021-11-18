@@ -29,4 +29,12 @@ public class Person {
         this.cars.add(car);
         car.setPerson(this);
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

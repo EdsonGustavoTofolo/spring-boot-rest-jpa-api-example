@@ -11,5 +11,4 @@ public interface PersonService {
     PersonDto create(PersonDto personDto);
     Optional<PersonDto> update(Integer id, PersonDto personDto);
     Optional<PersonDto> deleteById(Integer id);
-
 }
