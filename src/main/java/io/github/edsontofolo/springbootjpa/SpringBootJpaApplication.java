@@ -35,7 +35,6 @@ public class SpringBootJpaApplication {
             volkswagen.setName("Volkswagen");
 
             brandRepository.saveAll(Arrays.asList(kia, volkswagen));
-
             System.out.println("Brands saved...");
 
             System.out.println("Saving people...");
@@ -51,6 +50,7 @@ public class SpringBootJpaApplication {
             Car golf = new Car();
             golf.setName("Golf");
             golf.setBrand(volkswagen);
+
 
             Person jonh = new Person();
             jonh.setName("John");

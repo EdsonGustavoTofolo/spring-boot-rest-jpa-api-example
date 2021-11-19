@@ -2,9 +2,11 @@ package io.github.edsontofolo.springbootjpa.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
+@ToString
 @Getter
 @Setter
 @Entity

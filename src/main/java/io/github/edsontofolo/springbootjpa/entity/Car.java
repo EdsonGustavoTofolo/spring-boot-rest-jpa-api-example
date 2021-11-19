@@ -6,7 +6,6 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@ToString
 @Getter
 @Setter
 @Entity
@@ -26,6 +25,16 @@ public class Car {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn(name = "brand", nullable = false)
     private Brand brand;
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "person=" + person +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", brand=" + brand +
+                '}';
+    }
 }
