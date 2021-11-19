@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringBootJpaApplication {
@@ -66,6 +67,13 @@ public class SpringBootJpaApplication {
 
             List<Person> people = personRepository.findAll();
             people.forEach(System.out::println);
+
+            people.forEach(person -> {
+                personRepository.findById(person.getId()).map(person1 -> {
+                    person1.getCars().forEach(System.out::println);
+                    return person1;
+                }).orElseThrow(() -> new IllegalArgumentException("Person not found"));
+            });
         };
     }
 }
