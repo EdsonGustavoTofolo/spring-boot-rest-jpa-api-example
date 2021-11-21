@@ -1,4 +1,4 @@
-package io.github.edsontofolo.springbootjpa.entity;
+package io.github.edsontofolo.springbootjpa.car;
 
 import lombok.*;
 

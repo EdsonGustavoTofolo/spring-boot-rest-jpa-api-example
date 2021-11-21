@@ -1,11 +1,6 @@
-package io.github.edsontofolo.springbootjpa.service;
+package io.github.edsontofolo.springbootjpa.car;
 
-import io.github.edsontofolo.springbootjpa.dto.CarDto;
-import io.github.edsontofolo.springbootjpa.entity.Car;
-import io.github.edsontofolo.springbootjpa.entity.CarId;
-import io.github.edsontofolo.springbootjpa.mapper.CarMapper;
-import io.github.edsontofolo.springbootjpa.repository.CarRepository;
-import io.github.edsontofolo.springbootjpa.repository.PersonRepository;
+import io.github.edsontofolo.springbootjpa.person.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

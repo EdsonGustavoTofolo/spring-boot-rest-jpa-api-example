@@ -1,7 +1,6 @@
-package io.github.edsontofolo.springbootjpa.mapper;
+package io.github.edsontofolo.springbootjpa.person;
 
-import io.github.edsontofolo.springbootjpa.dto.PersonDto;
-import io.github.edsontofolo.springbootjpa.entity.Person;
+import io.github.edsontofolo.springbootjpa.car.CarMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

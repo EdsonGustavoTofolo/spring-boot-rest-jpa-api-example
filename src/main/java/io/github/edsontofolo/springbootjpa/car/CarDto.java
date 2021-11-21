@@ -1,4 +1,4 @@
-package io.github.edsontofolo.springbootjpa.dto;
+package io.github.edsontofolo.springbootjpa.car;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

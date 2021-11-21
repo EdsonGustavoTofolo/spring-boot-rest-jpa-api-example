@@ -1,5 +1,6 @@
-package io.github.edsontofolo.springbootjpa.entity;
+package io.github.edsontofolo.springbootjpa.person;
 
+import io.github.edsontofolo.springbootjpa.car.Car;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;

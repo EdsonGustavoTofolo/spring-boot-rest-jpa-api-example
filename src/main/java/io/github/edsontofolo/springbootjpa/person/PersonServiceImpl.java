@@ -1,9 +1,5 @@
-package io.github.edsontofolo.springbootjpa.service;
+package io.github.edsontofolo.springbootjpa.person;
 
-import io.github.edsontofolo.springbootjpa.dto.PersonDto;
-import io.github.edsontofolo.springbootjpa.entity.Person;
-import io.github.edsontofolo.springbootjpa.mapper.PersonMapper;
-import io.github.edsontofolo.springbootjpa.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

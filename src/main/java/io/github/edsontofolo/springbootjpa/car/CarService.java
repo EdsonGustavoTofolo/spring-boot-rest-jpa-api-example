@@ -1,6 +1,4 @@
-package io.github.edsontofolo.springbootjpa.service;
-
-import io.github.edsontofolo.springbootjpa.dto.CarDto;
+package io.github.edsontofolo.springbootjpa.car;
 
 import java.util.Optional;
 

@@ -1,6 +1,7 @@
-package io.github.edsontofolo.springbootjpa.dto;
+package io.github.edsontofolo.springbootjpa.person;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.github.edsontofolo.springbootjpa.car.CarDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

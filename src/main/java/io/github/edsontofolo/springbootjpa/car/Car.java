@@ -1,5 +1,7 @@
-package io.github.edsontofolo.springbootjpa.entity;
+package io.github.edsontofolo.springbootjpa.car;
 
+import io.github.edsontofolo.springbootjpa.brand.Brand;
+import io.github.edsontofolo.springbootjpa.person.Person;
 import lombok.Getter;
 import lombok.Setter;
 

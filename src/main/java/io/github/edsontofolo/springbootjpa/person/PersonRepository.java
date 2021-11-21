@@ -1,6 +1,5 @@
-package io.github.edsontofolo.springbootjpa.repository;
+package io.github.edsontofolo.springbootjpa.person;
 
-import io.github.edsontofolo.springbootjpa.entity.Person;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 

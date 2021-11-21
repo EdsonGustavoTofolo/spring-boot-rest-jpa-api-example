@@ -1,7 +1,5 @@
-package io.github.edsontofolo.springbootjpa.rest;
+package io.github.edsontofolo.springbootjpa.person;
 
-import io.github.edsontofolo.springbootjpa.dto.PersonDto;
-import io.github.edsontofolo.springbootjpa.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
-package io.github.edsontofolo.springbootjpa.rest;
+package io.github.edsontofolo.springbootjpa.car;
 
-import io.github.edsontofolo.springbootjpa.service.CarService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class CarRestController {
 
     @DeleteMapping("/{carId}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer personId,
-                           @PathVariable Integer carId) {
+                                           @PathVariable Integer carId) {
         this.carService.deleteById(personId, carId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Person not found"))
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Car not found"));

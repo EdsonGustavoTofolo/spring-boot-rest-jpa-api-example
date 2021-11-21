@@ -1,10 +1,10 @@
 package io.github.edsontofolo.springbootjpa;
 
-import io.github.edsontofolo.springbootjpa.entity.Brand;
-import io.github.edsontofolo.springbootjpa.entity.Car;
-import io.github.edsontofolo.springbootjpa.entity.Person;
-import io.github.edsontofolo.springbootjpa.repository.BrandRepository;
-import io.github.edsontofolo.springbootjpa.repository.PersonRepository;
+import io.github.edsontofolo.springbootjpa.brand.Brand;
+import io.github.edsontofolo.springbootjpa.car.Car;
+import io.github.edsontofolo.springbootjpa.person.Person;
+import io.github.edsontofolo.springbootjpa.brand.BrandRepository;
+import io.github.edsontofolo.springbootjpa.person.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootApplication
 public class SpringBootJpaApplication {
