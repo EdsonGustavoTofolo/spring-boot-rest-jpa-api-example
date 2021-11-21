@@ -2,7 +2,6 @@ package io.github.edsontofolo.springbootjpa.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,22 +9,22 @@ import javax.persistence.*;
 @Setter
 @Entity
 @IdClass(CarId.class)
-@SequenceGenerator(name = "CAR_SEQ", sequenceName = "CAR_ID_SEQUENCE")
+@SequenceGenerator(name = "GEN_CAR_SEQ", sequenceName = "CAR_ID_SEQUENCE")
 public class Car {
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person")
     private Person person;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAR_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_CAR_SEQ")
     private Integer id;
 
     @Column(nullable = false)
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "brand", nullable = false)
+    @JoinColumn(name = "brand", nullable = false, updatable = false)
     private Brand brand;
 
     @Override
@@ -33,8 +32,7 @@ public class Car {
         return "Car{" +
                 "person=" + person +
                 ", id=" + id +
-                ", name='" + name + '\'' +
-                ", brand=" + brand +
+                ", name='" + name +
                 '}';
     }
 }
