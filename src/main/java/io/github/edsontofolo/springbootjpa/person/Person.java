@@ -1,15 +1,16 @@
 package io.github.edsontofolo.springbootjpa.person;
 
 import io.github.edsontofolo.springbootjpa.car.Car;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -21,16 +22,18 @@ public class Person {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "person", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<Car> cars;
 
-    public void addCar(Car car) {
-        if (this.cars == null) {
-            this.cars = new ArrayList<>();
-        }
-        this.cars.add(car);
-        car.setPerson(this);
+    public Person(String name, List<Car> cars) {
+        this.name = name;
+        this.cars = cars;
+        this.cars.forEach(car -> car.setPerson(this));
+    }
+
+    public void removeCar(Car car) {
+        car.setPerson(null);
+        this.cars.remove(car);
     }
 
     @Override
@@ -40,4 +43,5 @@ public class Person {
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

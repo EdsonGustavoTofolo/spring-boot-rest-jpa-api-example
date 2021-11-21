@@ -27,38 +27,26 @@ public class SpringBootJpaApplication {
         return args -> {
             System.out.println("Saving brands...");
 
-            Brand kia = new Brand();
-            kia.setName("Kia");
+            Brand kia = new Brand("Kia");
 
-            Brand volkswagen = new Brand();
-            volkswagen.setName("Volkswagen");
+            Brand volkswagen = new Brand("Volkswagen");
 
             brandRepository.saveAll(Arrays.asList(kia, volkswagen));
             System.out.println("Brands saved...");
 
             System.out.println("Saving people...");
 
-            Car cerato = new Car();
-            cerato.setName("Cerato");
-            cerato.setBrand(kia);
+            Car cerato = new Car("Cerato", kia);
 
-            Car sportage = new Car();
-            sportage.setName("Sportage");
-            sportage.setBrand(kia);
+            Car sportage = new Car("Sportage", kia);
 
-            Car golf = new Car();
-            golf.setName("Golf");
-            golf.setBrand(volkswagen);
+            Car golf = new Car("Golf", volkswagen);
 
+            Car nivus = new Car("Nivus", volkswagen);
 
-            Person jonh = new Person();
-            jonh.setName("John");
-            jonh.addCar(cerato);
-            jonh.addCar(sportage);
+            Person jonh = new Person("John", Arrays.asList(cerato, sportage, nivus));
 
-            Person donald = new Person();
-            donald.setName("Donald");
-            donald.addCar(golf);
+            Person donald = new Person("Donald", Arrays.asList(golf));
 
             personRepository.save(jonh);
             personRepository.save(donald);

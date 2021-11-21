@@ -1,11 +1,10 @@
 package io.github.edsontofolo.springbootjpa.brand;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @ToString
 @Getter
 @Setter
@@ -16,4 +15,8 @@ public class Brand {
     private Integer id;
     @Column(nullable = false)
     private String name;
+
+    public Brand(String name) {
+        this.name = name;
+    }
 }

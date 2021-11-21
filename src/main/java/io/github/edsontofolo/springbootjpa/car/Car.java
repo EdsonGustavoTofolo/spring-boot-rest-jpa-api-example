@@ -2,11 +2,14 @@ package io.github.edsontofolo.springbootjpa.car;
 
 import io.github.edsontofolo.springbootjpa.brand.Brand;
 import io.github.edsontofolo.springbootjpa.person.Person;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -28,6 +31,11 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "brand", nullable = false, updatable = false)
     private Brand brand;
+
+    public Car(String name, Brand brand) {
+        this.name = name;
+        this.brand = brand;
+    }
 
     @Override
     public String toString() {

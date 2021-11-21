@@ -16,15 +16,14 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Optional<Optional<CarDto>> deleteById(Integer personId, Integer carId) {
-        if (this.personRepository.existsById(personId)) {
-            Optional<CarDto> carDto = this.carRepository.findById(new CarId(personId, carId)).map(car -> {
-                this.carRepository.delete(car);
-                return this.toDto(car);
-            });
-            return Optional.of(carDto);
-        } else {
-            return Optional.empty();
-        }
+        return this.personRepository.findById(personId)
+                .map(person -> this.carRepository
+                        .findById(new CarId(personId, carId))
+                            .map(car -> {
+                               person.removeCar(car);
+                               this.personRepository.save(person);
+                               return this.toDto(car);
+                            }));
     }
 
     private CarDto toDto(Car car){

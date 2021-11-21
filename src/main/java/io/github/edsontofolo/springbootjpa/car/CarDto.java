@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarDto {
+    private Integer personId;
     private Integer id;
     private String name;
     private Integer brandId;
