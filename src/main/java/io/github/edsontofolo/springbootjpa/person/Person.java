@@ -22,7 +22,7 @@ public class Person {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "person", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Car> cars;
 
     public Person(String name, List<Car> cars) {
