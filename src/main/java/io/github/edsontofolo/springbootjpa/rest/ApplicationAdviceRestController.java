@@ -15,9 +15,9 @@ public class ApplicationAdviceRestController extends ResponseEntityExceptionHand
     public ApiErrors handleConstraintViolation(ConstraintViolationException ex) {
         String sqlExceptionMessage = ex.getSQLException().getMessage().toLowerCase();
         if (sqlExceptionMessage.contains("unique index or primary key violation")) {
-            return new ApiErrors("Record must be unique");
+            return new ApiErrors("Already exists record with this values");
         } else if (sqlExceptionMessage.contains("referential integrity constraint violation")) {
-            return new ApiErrors("Record does reference to another table");
+            return new ApiErrors("Record can not be delete, because does reference to another table");
         }
         return new ApiErrors(ex.getCause().getMessage());
     }
