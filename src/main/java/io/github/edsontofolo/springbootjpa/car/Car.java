@@ -24,7 +24,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_CAR_SEQ")
     private Integer id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
 
     @ManyToOne
