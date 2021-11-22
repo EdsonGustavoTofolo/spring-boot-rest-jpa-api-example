@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class PersonRestController {
     private final PersonService personService;
 
     @PostMapping
-    public ResponseEntity<PersonDto> create(@RequestBody PersonDto personDto) {
+    public ResponseEntity<PersonDto> create(@RequestBody @Valid PersonDto personDto) {
         PersonDto personDtoCreated = this.personService.create(personDto);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(personDtoCreated.getId()).toUri();
@@ -26,7 +27,7 @@ public class PersonRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PersonDto> update(@PathVariable Integer id, @RequestBody PersonDto personDto) {
+    public ResponseEntity<PersonDto> update(@PathVariable Integer id, @RequestBody @Valid PersonDto personDto) {
         PersonDto personDtoUpdated = this.personService.update(id, personDto)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Person not found!"));
         return ResponseEntity.ok(personDtoUpdated);

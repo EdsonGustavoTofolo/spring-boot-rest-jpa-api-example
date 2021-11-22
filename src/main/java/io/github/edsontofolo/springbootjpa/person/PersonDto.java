@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PersonDto {
     private Integer id;
+    @NotEmpty(message = "Name can not be empty")
     private String name;
     private List<CarDto> cars;
 }

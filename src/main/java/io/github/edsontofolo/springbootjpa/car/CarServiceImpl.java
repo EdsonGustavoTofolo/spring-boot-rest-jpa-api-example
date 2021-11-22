@@ -15,6 +15,11 @@ public class CarServiceImpl implements CarService {
     private final CarMapper carMapper;
 
     @Override
+    public CarDto create(CarDto carDto) {
+        return null;
+    }
+
+    @Override
     public Optional<Optional<CarDto>> deleteById(Integer personId, Integer carId) {
         return this.personRepository.findById(personId)
                 .map(person -> this.carRepository

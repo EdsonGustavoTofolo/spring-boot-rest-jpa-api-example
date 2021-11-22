@@ -2,7 +2,6 @@ package io.github.edsontofolo.springbootjpa.car;
 
 import io.github.edsontofolo.springbootjpa.brand.Brand;
 import io.github.edsontofolo.springbootjpa.person.Person;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +24,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GEN_CAR_SEQ")
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @ManyToOne
